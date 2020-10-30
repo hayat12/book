@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Book List</h1>
+    <div class="row">
+        <div class="col-4"><label>Selected Book Name:</label> {{bookInfo.name}}</div>
+        <div class="col-4"><label>Selected Book Description:</label> {{bookInfo.desc}}</div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let o of bookList$ | async as list">
+                <td (click)="selectedBook(o)">{{o.name}}</td>
+                <td>{{o.desc}}</td>
+                <td>
+                    <button (click)="onView(o)" class="btn btn-danger">View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
